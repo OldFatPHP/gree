@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 销售单后台修改（与销售前台一样就行）：这个本来我是想做成同一个页面的，但是要js才行，我不懂。就留麻烦给你了。这个修改我就想把这个index和update做在同一页面，最好是在原来的表格上就可以修改。 -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+	<title>销售单修改</title>
+
+</head>
+<body>
+    <form action="{:U('SalesModify/update')}" method="post">
+		<table class='table'>
+		<tr> 
+			 <td class="sum" colspan='100%'> <a href="{:U('SalesDetails/expUser')}" ><i class="icon-share-alt"></i> 导出数据并生成excel</a></td>
+		</tr>
+			<tr>
+				<th> 销售单号</th>
+				<th> 销售网点</th>
+				<th> 销售员</th>
+				<th> 顾客姓名</th>
+				<th> 顾客手机号码</th>
+				<th> 顾客固定电话</th>
+				<th> 发票号</th>
+				<th> 邮箱</th>
+				<th> 购买时间</th>
+				<th> 预约安装时间</th>
+				<th> 安装地址</th>
+				<th> 型号</th>
+				<th> 是否要支架</th>
+				<th> 是否返现</th>
+				<th> 购买数量</th>
+				<th> 销售备注</th>
+				<td> 操作</td>
+			</tr>
+		    <foreach name="array" item="vo">
+		       <tr>
+		            <td> {$vo.salesID}</td>
+		            <td> {$vo.salesBranchID}</td>
+		            <td> {$vo.salesClientName}</td>
+		            <td> {$vo.salesPersonName}</td>
+		            <td> {$vo.salesClientPhone}</td>
+		            <td> {$vo.salesPersonTelePhone} </td>
+		            <td> {$vo.salesInvoiceID}</td>
+		            <td> {$vo.salesClientMail}</td>
+		            <td> {$vo.salesBuyTime}</td>
+		            <td> {$vo.salesInstallTime}</td>
+		            <td> {$vo.salesPersonAddress}</td>
+		            <td> {$vo.salesModelID}</td>
+		            <td> {$vo.salesStand}</td>
+		            <td> {$vo.salesCashback}</td>
+		            <td> {$vo.salesProductNum}</td>
+		            <td> {$vo.salesRemark}</td>
+		            <td><a href="{:U('SalesModify/update',array('salesID' => $vo['salesID']))}" >修改</a></td>
+			   </tr>
+		    </foreach>
+		</table>
+		<div class="result page">{$page}</div>
+	</form>	
+</body>
+</html>

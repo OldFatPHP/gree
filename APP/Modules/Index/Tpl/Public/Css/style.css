@@ -1,0 +1,24 @@
+
+
+
+	/* 
+	Generic Styling, for Desktops/Laptops 
+	*/
+	#page-wrap table { 
+		width: 100%; 
+		border-collapse: collapse; background:#fff
+	}
+	/* Zebra striping */
+	#page-wrap tr:nth-of-type(odd) { 
+		background: #eee; 
+	}
+	#page-wrap th { 
+		background: #222; 
+		color: white; 
+		font-weight: bold; 
+	}
+	#page-wrap td, #page-wrap th { 
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: left; 
+	}

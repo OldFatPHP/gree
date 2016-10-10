@@ -1,0 +1,146 @@
+*{padding:0px;margin: 0px;font-size:14px;}
+ul,ol{list-style:none;}
+a{ text-decoration: none;color:#3361AD;}
+iframe{width:100%;height:100%;border:none;}
+table{width:100%;}
+table,th,td{ border-collapse: collapse;background:#f7f7f7;}
+th,td{padding:5px 5px;}
+input,button{ border:solid 1px #ccc;height:25px;padding:3px 6px;color:#000;background:#fff; vertical-align: middle;}
+input[disabled]{
+	background:#EEE;
+	color:#959595;
+}
+input[type=checkbox]{
+width: 20px;
+height: 20px;
+}
+input[type=submit]{
+	margin:10px 5px;
+    height: 30px;
+    padding: 3px 10px;
+    color: #fff;
+    background: #222;
+
+}
+select{border:solid 1px #ccc;}
+img{border:none; vertical-align: middle;}
+.len100{width:100px;}
+.len150{width:159px;}
+.len200{width:200px;}
+.len250{width:250px;}
+.len300{width:300px;}
+.len350{width:350px;}
+.len400{width:400px;}
+.l{float:left;}
+.r{float:right;}
+.c{clear: both;}
+em{color:#f00;font-style:normal;line-height:1.8em;border-collapse:collapse;}/**红星**/
+.submit{background:#255E9C;height:30px;padding:0px 30px;line-height:1.8em;color:#fff;font-size:16px; cursor: pointer;}
+.error{padding:3px;line-height: 1.2em;margin-top:8px; font-size:12px;color:#f00;}
+span.msg{color:#666;border:solid 1px #eee;padding:6px;margin-left:10px;}
+.content{padding:10px;}
+/*****分页处理*******/
+
+.page {
+	font-size:12px;color:#666;PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px;
+	
+}
+.page .count,.page .nowpage{margin-right:10px;}
+.page .selfpage {
+	background:#2E6AB1;color:#fff;BORDER-RIGHT: #9aafe5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #9aafe5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #9aafe5 1px solid; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #9aafe5 1px solid; TEXT-DECORATION: none
+}
+.page a {
+	BORDER-RIGHT: #9aafe5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #9aafe5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #9aafe5 1px solid; COLOR: #2e6ab1; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #9aafe5 1px solid; TEXT-DECORATION: none
+}
+.page a:hover {
+	BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}
+.page a:active {
+	BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}
+.page span.current {
+	BORDER-RIGHT: navy 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: navy 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; BORDER-LEFT: navy 1px solid; COLOR: #fff; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: navy 1px solid; BACKGROUND-COLOR: #2e6ab1
+}
+.page span.disabled {
+	BORDER-RIGHT: #929292 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #929292 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #929292 1px solid; COLOR: #929292; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #929292 1px solid
+}
+.page #pagekeydown{}
+.page input{height:22px;line-height:16px;padding:0px 0px;margin:0px;margin-right: 5px;}
+.page button{height:22px;line-height: 6px;display: inline;}
+.page select{}
+/****表格样式1********/
+.table{width:100%;}
+.sum{background:#fff;color:#0F70C9;font-weight:bold;}
+.table,.table td{border:solid 1px #ccc;}
+.table th{border:solid 1px #ccc;}
+.table thead tr td{background: #eee;color:#333;}
+/*---------------------------------------date demo css--------------------------------------------*/
+.date_selector, .date_selector *{width: auto;height: auto;border: none;background: none;margin: 0;padding: 0;text-align: left;text-decoration: none;}
+.date_selector{background:#fbfbfb;border: 1px solid #ccc;padding: 10px;margin-left:-35px;position: absolute;z-index:100000;display:none;border-radius: 3px;box-shadow: 0 0 5px #aaa;box-shadow:0 2px 2px #ccc; width:220px;}
+.date_selector_ieframe{position: absolute;z-index: 99999;display: none;}
+.date_selector .nav{width: 17.5em;}
+.date_selector .nav p{clear: none;}
+.date_selector .month_nav, .date_selector .year_nav{margin: 0 0 3px 0;padding: 0;display: block;position: relative;text-align: center;}
+.date_selector .month_nav{float: left;width: 45%;}
+.date_selector .year_nav{float: right;width: 42%;margin-right: 25px;}
+.date_selector .month_name, .date_selector .year_name{font-weight: bold;line-height: 20px;font-size:12px;}
+.date_selector .button{display: block;position: absolute;top: 0;width:18px;height:18px;line-height:16px;font-weight:bold;color:#5985c7;text-align: center;font-size:12px;overflow:hidden;border: 1px solid #ccc;border-radius:2px;}
+.date_selector .button:hover, .date_selector .button.hover{background:#5985c7;color: #fff;cursor: pointer;border-color:#3a930d;}
+.date_selector .prev{left: 0;}
+.date_selector .next{right: 0;}
+.date_selector table{border-spacing: 0;border-collapse: collapse;clear: both;margin: 0; width:220px;}
+.date_selector th, .date_selector td{width: 2.5em;height: 2em;padding: 0 !important;text-align: center !important;color: #666;font-weight: normal;}
+.date_selector th{font-size: 12px;}
+.date_selector td{border:1px solid #f1f1f1;line-height: 2em;text-align: center;white-space: nowrap;color:#5985c7;background: #fff;}
+.date_selector td.today{background: #eee;}
+.date_selector td.unselected_month{color: #ccc;}
+.date_selector td.selectable_day{cursor: pointer;}
+.date_selector td.selected{background:#2b579a;color: #fff;font-weight: bold;}
+.date_selector td.selectable_day:hover, .date_selector td.selectable_day.hover{background:#5985c7;color: #fff;}
+/*-----------------------------------------------------------------------------------*/
+
+/******按钮*******/
+.bt1{padding:8px 15px;margin-right:6px; background: #ccc;color:#000;border-radius: 3px; text-align: center;float:left;display: block;cursor: pointer;}
+.bt2{padding:8px 15px;margin-right:6px; background: #4884D5;color:#fff;border-radius: 3px; text-align: center;float:left;display: block;cursor: pointer;}
+
+/* nav */
+form{
+	margin: 55px 0px;
+}
+#top{
+	width:100%;
+	background:#444;
+	height:45px;
+	color:#fff;
+	line-height:50px;
+	font-size:10px;
+}
+#top a{
+	color:#fff;
+}
+#top .menu{
+	position:absolute;
+	left:17px;
+
+}
+#top .exit{
+	position:absolute;
+	left:17px;
+}
+#top .exit a {
+    font-size: 12px;
+    color: #fff;
+    padding: 3px 5px;
+    border: solid 1px #E3E3E3;
+    border-radius: 3px;
+}
+#top .exit a:hover{background: #fff;color:#2c3742;}
+@media screen and (max-width: 500px) {
+	#top .exit{
+	position:relative;
+	text-align:center;
+	left:3%;
+}
+	
+	
+}

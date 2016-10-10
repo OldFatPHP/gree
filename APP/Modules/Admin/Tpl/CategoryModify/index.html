@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- 产品品类修改：这个修改我就想把这个index和update做在同一页面，最好是在原来的表格上就可以修改。 -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+	<title>品类修改</title>
+</head>
+<body>
+    <form action="{:U('CategoryModify/update')}" method="post">
+		<table class='table'>
+			<tr>
+			    <th>品类</th>
+				<td>操作</td>
+			</tr>
+		    <foreach name="array" item="vo">
+		       <tr>
+		            <td style="text-align:center;"> {$vo.categoryName}</td>
+		            <td><a href="{:U('CategoryModify/update',array('categoryID' => $vo['categoryID']))}" >修改</a></td>
+			   </tr>
+		    </foreach>
+		</table>
+		<div class="result page">{$page}</div>
+	</form>	
+</body>
+</html>

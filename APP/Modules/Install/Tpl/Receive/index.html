@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+  <title>{:U('Receive/index')}</title>
+  <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+  <script>
+  $(function(){
+	  $("input[name='allcheck']").change(function(){ 
+			if($("input[name='allcheck']").is(':checked')){
+				$("input[name^='installIDs']").attr("checked",true); 
+			}else{
+				$("input[name^='installIDs']").attr("checked",false); 
+			}
+		});
+  });
+  
+  </script>
+ </head>
+ <body>
+  <form action="{:U('index')}" method='post'>
+	<table class='table'>
+		<tr>
+			<th align='right'>顾客姓名</th>
+			<td width='90%'><input type='text' name='salesClientName' value='{$salesClientName}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>顾客手机号</th>
+			<td width='90%'><input type='text' name='salesClientPhone' value='{$salesClientPhone}'/></td>
+		</tr>
+	</table>
+	<input type='submit' value='查询'/>姓名和手机号可以只填一个，不填默认查询全部。
+</form>
+<form action="{:U('receiveHandle')}" method="post">
+		<table class='table'>
+			<tr> 
+			 <td class="sum" colspan='100%'> <a href="{:U('export')}"><i class="icon-share-alt"></i> 导出全部</a></td>
+			</tr>
+			<tr>
+				<th>序号</th>
+				<td>选择</td>
+				<td>安装编号</td>
+				<td>购买日期</td>
+				<td>安装日期</td>
+				<td>创建时间</td>
+				<td>派工时间</td>
+				<td>购买商场</td>
+				<td>购买型号</td>
+				<td>数量</td>
+				<td>顾客姓名</td>
+				<td>顾客手机</td>
+				<td>顾客固话</td>
+				<td>顾客地址</td>
+				<td>返现金额</td>
+				<td>是否有返现活动</td>
+				<td>是否需要支架</td>
+			</tr>
+			<foreach name="list" item="vo">
+		       <tr>
+		       		<td>{$i++}</td>
+		            <td> <input type="checkbox" name="installIDs[]" value="{$vo.installID}"> </td>
+		            <td>{$vo.installID}</td>
+		            <td>{$vo.salesBuyTime} </td>
+		            <td>{$vo.salesInstallTime} </td>
+		            <td>{$vo.installCreateTime} </td>
+		            <td>{$vo.installDispatchTime} </td>
+		            <td>{$vo.branchName} </td>
+		            <td>{$vo.modelName} </td>
+		            <td>{$vo.salesProductNum} </td>
+		            <td>{$vo.salesClientName} </td>
+		            <td>{$vo.salesClientPhone} </td>
+		            <td>{$vo.salesPersonTelePhone} </td>
+		            <td>{$vo.salesPersonAddress} </td>
+		            <td>{$vo.salesRemark} </td>
+		            <td>{$vo.salesCashback} </td>
+		            <td>{$vo.salesStand} </td>
+			   </tr>
+			</foreach>
+		</table>
+		</br><P>&nbsp;全选&nbsp; <input type="checkbox" name="allcheck" value='1'></P>
+		<input type="submit" style="cursor:pointer" value="接收">
+	</form>
+	<div class="result page">{$page}</div>
+ </body>
+</html>

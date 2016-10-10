@@ -1,0 +1,147 @@
+<?php if (!defined('THINK_PATH')) exit();?><html>
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+      <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Js/jquery.date_input.pack.js"></script> 
+  <script type="text/javascript">
+  $(function(){
+		$('.date_picker').date_input();
+		})
+  </script>
+  
+  <script type="text/javascript">
+	  /*  
+	 **    ==================================================================================================  
+	 **    类名：CLASS_LIANDONG_YAO  
+	 **    功能：多级连动菜单  
+	 **    
+	 **    作者：YAODAYIZI  
+	 **    ============================
+	 	======================================================================  
+	 **/   
+	   function CLASS_LIANDONG_YAO(array)
+	   {
+	    //数组，联动的数据源
+	    this.array=array; 
+	    this.indexName='';
+	    this.obj='';
+	    //设置子SELECT
+	  // 参数：当前onchange的SELECT ID，要设置的SELECT ID
+	       this.subSelectChange=function(selectName1,selectName2)
+	    {
+	    //try
+	    //{
+	     var obj1=document.all[selectName1];
+	     var obj2=document.all[selectName2];
+	     var objName=this.toString();
+	     var me=this;
+	   
+	     obj1.onchange=function()
+	     {
+	      
+	      me.optionChange(this.options[this.selectedIndex].value,obj2.id)
+	     }
+	    }
+	    //设置第一个SELECT
+	  // 参数：indexName指选中项,selectName指select的ID
+	    this.firstSelectChange=function(indexName,selectName)  
+	    {
+	    this.obj=document.all[selectName];
+	    this.indexName=indexName;
+	    this.optionChange(this.indexName,this.obj.id)
+	    }
+	   
+	   // indexName指选中项,selectName指select的ID
+	    this.optionChange=function (indexName,selectName)
+	    {
+	     var obj1=document.all[selectName];
+	     var me=this;
+	     obj1.length=0;
+	     obj1.options[0]=new Option("请选择",'');
+	     for(var i=0;i<this.array.length;i++)
+	     { 
+	     
+	      if(this.array[i][1]==indexName)
+	      {
+	      //alert(this.array[i][1]+" "+indexName);
+	       obj1.options[obj1.length]=new Option(this.array[i][2],this.array[i][0]);
+	      }
+	     }
+	    }
+	    
+	   }
+
+ </script>
+  
+  <title>添加用户</title>
+ </head>
+	<body>
+			<form action="<?php echo U('Operation/create');?>" method="post">
+				<table class='table'>
+						<tr><th align='right'>手机号</th><td width='90%'><input type="text" name="userID"/></td></tr>
+						<tr><th align='right'>姓名</th><td width='90%'><input type="text" name="userName" /></td></tr>
+						<tr><th align='right'>密码</th><td width='90%'><input type="password" name="userPassword"/></td></tr>
+						<tr><th align='right'>性别</th><td width='90%'>
+						<select name="userSex">
+								<option value='男'>男</option>
+								<option value='女'>女</option>
+
+							</select>
+
+						</td></tr>
+						<tr><th align='right'>证件号(可空)</th><td width='90%'><input type="text" name="userIDCard"/></td></tr>
+						<tr><th align='right'>入职时间</th><td width='90%'><input type="text" name="userEntryTime" class="date_picker"/></td></tr>
+
+						<!-- <tr><th align='right'>类别</th><td width='90%'>
+							<select name="userTypeID">
+								<option value=1>销售</option>
+								<option value=2>安装</option>
+								<option value=3>后台</option>
+							</select>
+						</td></tr> -->
+						<!-- <tr><th align='right'>所属网点</th><td width='90%'><input type="text" name="userBranch"/></td></tr> -->
+
+						<tr>
+						<th align='right'>类别及网点</th>
+						<td width='70%'>
+							<SELECT ID="x1" NAME="x1"  >
+								<OPTION selected></OPTION>
+							</SELECT>
+							<SELECT ID="x2" NAME="x2"  >
+								<OPTION selected></OPTION>
+							</SELECT>
+						</td>
+						</tr>
+
+						<tr><th align='right'>备注(可空)</th><td width='90%'><input type="text" name="userRemark"/></td></tr>
+				</table>
+				<input type="submit" value="确认添加"/>
+				<input type="reset" value="重新填写"/>
+			</form>
+	</body>
+	<script type="text/javascript">
+ //数据源 
+  var arr=<?php echo ($arr); ?>;
+ 
+  var array2=new Array();//数据格式 ID，父级ID，名称
+  array2[0]=new Array(1,0,'销售'); 
+  array2[1]=new Array(2,0,'安装');
+  array2[2]=new Array(3,0,'后台');
+ for(var o in arr){
+ 		array2[o]=new Array(arr[o].branchID,arr[o].pid,arr[o].branchName); 
+    } 
+  //--------------------------------------------
+  //这是调用代码
+  //设置数据源
+  var liandong2=new CLASS_LIANDONG_YAO(array2);
+  //设置第一个选择框
+  liandong2.firstSelectChange("0","x1");
+  //设置子选择框
+  liandong2.subSelectChange("x1","x2")
+  liandong2.subSelectChange("x2","x3")
+  liandong2.subSelectChange("x3","x4")
+  liandong2.subSelectChange("x4","x5")
+ </script>
+</html>

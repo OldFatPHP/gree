@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+	<title>品类汇总</title>
+</head>
+<body>
+	<form action="{:U('CategoryDetails')}" method="post">
+	  <table class='table'>
+	  <tr> 
+			 <td class="sum" colspan='100%'> <a href="{:U('CategoryDetails/expUser')}" ><i class="icon-share-alt"></i> 导出</a></td>
+	  </tr>
+			<tr>
+                <th>品类</th>
+			</tr>
+		    <foreach name="array" item="vo">
+		       <tr>
+		            <td style="text-align:center;"> {$vo.name}</td>			   
+		       </tr>
+		    </foreach>
+		</table>
+          <div class="result page">{$page}</div>
+	</form>
+</body>
+</html>

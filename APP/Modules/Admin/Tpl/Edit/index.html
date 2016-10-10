@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+
+	<form action="{:U('EditHandle')}" method="post">
+		<table>
+		 <volist name="list" id="vo"> 
+				<tr><td>安装编号<input type="text" name="installID" value="{$vo.installID}" disabled></td></tr>
+				<tr><td>数量<input type="text" value="{$vo.salesProductNum}" disabled></td></tr>
+				<tr><td>是否有返现活动<input type="text" name="salesCashback" value="{$vo.salesCashback}" ></td></tr>
+				<tr><td>是否需要支架<input type="text" name="salesStand" value="{$vo.salesStand}" ></td></tr>
+				<tr><td>是否使用支架<input type="text" name="installUserStand" value="{$vo.installUserStand}" ></td></tr>
+				<tr><td>安装人员<input type="text" name="installPersonName" value="{$vo.installPersonName}" ></td></tr>
+				<tr><td>安装人员号码<input type="text" name="installPersonPhone" value="{$vo.installPersonPhone}" ></td></tr>	
+				<tr><td>反馈类型<input type="text" name="installFeedback" value="{$vo.installFeedback}" ></td></tr>
+				<tr><td>反馈情况<input type="text" name="installFeedbackRemark" value="{$vo.installFeedbackRemark}" ></td></tr>
+				<tr><td>是否在新系统体现<input type="text" name="installNewSystem" value="{$vo.installNewSystem}" ></td></tr>
+				<tr><td>是否已转结算<input type="text" name="installTransferSettlement" value="{$vo.installTransferSettlement}" ></td></tr>
+				<tr><td>转结算日期<input type="text" name="installTransferSettlementDate"value="{$vo.installTransferSettlementDate}" ></td></tr>
+				<tr><td>创建时间<input type="text" name="installCreateTime" value="{$vo.installCreateTime}" ></td></tr>
+				<tr><td>派工时间<input type="text" name="installDispatchTime" value="{$vo.installDispatchTime }" ></td></tr>
+				<tr><td>关闭时间<input type="text" name="installEndTime" value="{$vo.installEndTime }" ></td></tr>
+				<tr><td>购买商场<input type="text" value="{$vo.branchName}"  disabled></td></tr>
+				<tr><td>购买型号<input type="text" value="{$vo.modelName}" disabled></td></tr>
+				
+				<tr><td>安装日期<input type="text" name="salesInstallTime" value="{$vo.salesInstallTime}" ></td></tr> 
+				<tr><td>顾客姓名<input type="text" name="salesClientName" value="{$vo.salesClientName}" ></td></tr>
+				<tr><td>顾客手机<input type="text" name="salesClientPhone" value="{$vo.salesClientPhone}" ></td></tr>
+				<tr><td>顾客固话<input type="text" name="salesPersonTelePhone" value="{$vo.salesPersonTelePhone}" ></td></tr>
+				<tr><td>顾客地址<input type="text" name="salesPersonAddress" value="{$vo.salesPersonAddress}" ></td></tr>
+				<tr><td>安装网点<input type="text" name="installBranchID" value="{$vo.installBranchName}" ></td></tr>
+				
+
+
+
+				<input type="hidden" name="salesID" value="{$vo.salesID}">
+				<input type="hidden" name="installID" value="{$vo.installID}">
+				<tr><td><input type="submit" value="更改" ></td></tr>
+		</volist>		
+		</table>
+		
+
+
+
+	</form>
+</body>
+</html>

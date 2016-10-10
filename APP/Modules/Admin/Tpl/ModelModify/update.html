@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- 型号修改：这个修改我就想把这个index和update做在同一页面，最好是在原来的表格上就可以修改。 -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+</head>
+<body>
+	<form  action="{:U('save')}"  method="post"> 		         
+		<table class='table'>
+        <volist name="arr" id="k">
+	          <tr>
+	          	<th align='right'>型号修改</th>
+	          	<td>
+	          		<input type="text" name="modelName" value="{$k.modelName}">
+	          	</td></tr>
+	          	<tr>
+	          	<th align='right'>价格</th>
+	          	<td>
+	          		<input type="text" name="price" value="{$k.price}">
+	          	</td></tr>
+	          	<tr>
+	          	<th align='right'>销售提成</th>
+	          	<td>
+	          		<input type="text" name="salesCommission" value="{$k.salesCommission}">
+	          	</td></tr>
+	          	<tr>
+	          	<th align='right'>安装提成</th>
+	          	<td>
+	          		<input type="text" name="installCommission" value="{$k.installCommission}">
+	          	</td></tr>
+	          	<tr>
+	          	<input type="hidden" name="pid" value="{$k.pid}">
+	          	<td colspan='2'><center>
+	          		<input type = "submit" value="确认修改" ></center>
+	          	</td>
+	          </tr>
+		</volist>		      
+		</table>
+	    </form>
+</body>
+</html>

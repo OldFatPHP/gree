@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+  <title>{:U('Query/index')}</title>
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Js/jquery.date_input.pack.js"></script> 
+  <script type="text/javascript">
+  <!--
+  $(function(){
+		$('.date_picker').date_input();
+		})
+  //-->
+  </script>
+ </head>
+ <body>
+ 	<form action="{:U(queryHandle)}" method='post' name="query">
+	<table class='table'>
+		<tr>
+			<th align='right'>安装编号</th>
+			<td width='90%'><input type='text' name='installID' value='{$installID}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>销售编号</th>
+			<td width='90%'><input type='text' name='saleID' value='{$saleID}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>购买人</th>
+			<td width='90%'><input type='text' name='salesClientName' value='{$salesClientName}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>购买人手机号</th>
+			<td width='90%'><input type='text' name='salesClientPhone' value='{$salesClientPhone}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>安装人名字</th>
+			<td width='90%'><input type='text' name='installPersonName' value='{$installPersonName}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>派工状态</th>
+			<td width='90%'>
+			<select name="installStatus">
+					<option value='' selected="selected">全部</option>
+				<if condition="$installStatus eq 2">
+					<option value='2' selected="selected">未接收</option>
+				<else />
+					<option value='2'>未接收</option>
+				</if>
+				<if condition="$installStatus eq 3">
+					<option value='3' selected="selected">未指派师傅</option>
+				<else />
+					<option value='3'>未指派师傅</option>
+				</if>
+				<if condition="$installStatus eq 4">
+					<option value='4' selected="selected">未完成</option>
+				<else />
+					<option value='4'>未完成</option>
+				</if>
+				<if condition="$installStatus eq 5">
+					<option value='5' selected="selected">报完工</option>
+				<else />
+					<option value='5'>报完工</option>
+				</if>
+				<if condition="$installStatus eq 6">
+					<option value='6' selected="selected">待关闭</option>
+				<else />
+					<option value='6'>待关闭</option>
+				</if>
+				<if condition="$installStatus eq 7">
+					<option value='7' selected="selected">已关闭</option>
+				<else />
+					<option value='7'>已关闭</option>
+				</if>
+				<if condition="$installStatus eq 10">
+					<option value='10' selected="selected">未审核</option>	
+				<else />
+					<option value='10'>未审核</option>	
+				</if>
+				
+				
+				
+				
+					
+				
+				
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th align='right'>购买时间</th>
+			<td width='90%'><input type='text' name='salesBuyTimeBegin' value='{$salesBuyTimeBegin}' class="date_picker"/>---<input type='text' name='salesBuyTimeEnd' value='{$salesBuyTimeEnd}' class="date_picker"/></td>
+		</tr>
+		<tr>
+			<th align='right'>安装时间</th>
+			<td width='90%'><input type='text' name='salesInstallTimeBegin' value='{$salesInstallTimeBegin}' class="date_picker"/>---<input type='text' name='salesInstallTimeEnd' value='{$salesInstallTimeEnd}' class="date_picker"/></td>
+		</tr>
+		<tr>
+			<th align='right'>创建时间</th>
+			<td width='90%'><input type='text' name='salesCreateTimeBegin' value='{$salesCreateTimeBegin}' class="date_picker"/>---<input type='text' name='salesCreateTimeEnd' value='{$salesCreateTimeEnd}' class="date_picker"/></td>
+		</tr>
+		<tr>
+			<th align='right'>派工时间</th>
+			<td width='90%'><input type='text' name='salesDispatchTimeBegin' value='{$salesDispatchTimeBegin}' class="date_picker"/>---<input type='text' name='salesDispatchTimeEnd' value='{$salesDispatchTimeEnd}' class="date_picker"/></td>
+		</tr>
+		
+
+	</table>
+	<input type='submit' style="cursor:pointer"  value='查询' onclick="query.action='{:U(queryHandle)}';query.submit();"/>
+	<input type='submit' style="cursor:pointer"  value='导出' onclick="query.action='{:U(export)}';query.submit();"/>
+	</form>
+
+		<table class='table'>
+			<tr>
+				<th>序号</th>
+				<td>安装编号</td>
+				<td>购买日期</td>
+				<td>安装日期</td>
+				<td>创建时间</td>
+				<td>派工时间</td>
+				<td>购买商场</td>
+				<td>购买型号</td>
+				<td>数量</td>
+				<td>顾客姓名</td>
+				<td>顾客手机</td>
+				<td>顾客固话</td>
+				<td>顾客地址</td>
+				<td>返现金额</td>
+				<td>是否有返现活动</td>
+				<td>是否需要支架</td>
+				<td>安装人员名字</td>
+				<td>安装人员手机号</td>
+				<th>是否使用支架</th>
+				<th>反馈类型</th>
+				<th>反馈情况</th>
+				<th>是否在新系统体现工单</th>
+				<th>是否已转结算</th>
+				<th>转结算日期</th>
+				<th>安装状态</th>
+				<th>备注</th>
+			</tr>
+			<foreach name="list" item="vo">
+
+		       <tr>
+		       		<td>{$i++}</td>
+		            <td>{$vo.installID}</td>
+		            <td>{$vo.salesBuyTime} </td>
+		            <td>{$vo.salesInstallTime} </td>
+		            <td>{$vo.installCreateTime} </td>
+		            <td>{$vo.installDispatchTime} </td>
+		            <td>{$vo.branchName} </td>
+		            <td>{$vo.modelName} </td>
+		            <td>{$vo.salesProductNum} </td>
+		            <td>{$vo.salesClientName} </td>
+		            <td>{$vo.salesClientPhone} </td>
+		            <td>{$vo.salesPersonTelePhone} </td>
+		            <td>{$vo.salesPersonAddress} </td>
+		            <td>{$vo.salesRemark} </td>
+		            <td>{$vo.salesCashback} </td>
+		            <td>{$vo.salesStand} </td>
+		            <td>{$vo.installPersonName}</td>
+		            <td>{$vo.installPersonPhone}</td>
+					<td>{$vo.installUserStand}</td>
+					<td>{$vo.installFeedback}</td>
+					<td>{$vo.installFeedbackRemark}</td>
+					<td>{$vo.installNewSystem}</td>
+					<td>{$vo.installTransferSettlement}</td>
+					<td>{$vo.installTransferSettlementDate}</td>
+					<td>{$vo.installStatus}</td>
+					<td>{$vo.installRemark}</td>
+			   	</tr>
+		      </foreach>
+		    </table>
+
+	<div class="result page">{$page}</div>
+ </body>
+</html> 

@@ -1,0 +1,35 @@
+@import url("public.css");
+html{overflow-y: hidden;}
+#top{height:50px;background: #2c3742;overflow: hidden; position: relative;color:#fff;}
+#top .menu{margin-top:17px;font-size:12px;}
+#top .menu a{
+
+padding: 17px 18px 17px 17px;
+
+color:#fff;
+}
+
+/******/
+.exit{position: absolute;top:18px;right:20px;font-size:12px;}
+.exit a{font-size:12px;color:#fff;padding:3px 5px;border:solid 1px #E3E3E3; border-radius: 3px;}
+.exit a:hover{background: #fff;color:#2c3742;}
+
+/****/
+#left{padding-top:20px;width:210px;float:left; overflow-x:hidden;
+	overflow-y:auto;border-right: solid 1px #f7f7f7; 
+background:#f0f0f0 10px 10px no-repeat; }
+
+#left dl{border-bottom:solid 1px #dcdcdc;padding-bottom: 15px;}
+#left dl dt{padding-left:10px; color:#33455A;margin-top:10px;font-weight:bold;cursor:pointer;}
+#left dl dt a{color:#33455A;font-weight:bold;}
+#left dl dd{margin-top:3px;display:none;}
+#left dl dd a{font-size:12px;padding:4px 0px;padding-left:14px;color:#33455A;display:block; }
+#left dl dd a:hover{background:#33455A;color:#fff;}
+#right{float:left;overflow: hidden;}
+.change{
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+  <title>{:U('InstallSucc/index')}</title>
+ </head>
+ <body>
+ <form action="{:U('index')}" method='post'>
+	<table class='table'>
+		<tr>
+			<th align='right'>顾客姓名</th>
+			<td width='90%'><input type='text' name='salesClientName' value='{$salesClientName}'/></td>
+		</tr>
+		<tr>
+			<th align='right'>顾客手机号</th>
+			<td width='90%'><input type='text' name='salesClientPhone' value='{$salesClientPhone}'/></td>
+		</tr>
+	</table>
+	<input type='submit' value='查询'/>姓名和手机号可以只填一个，不填默认查询全部。
+</form>
+		<table class='table'>
+			<tr> 
+			 <td class="sum" colspan='100%'> <a href="{:U('export')}"><i class="icon-share-alt"></i> 导出</a></td>
+			</tr>
+			<tr>
+				<th>序号</th>
+				<td> 安装编号</td>
+				<td>购买日期</td>
+				<td> 安装日期</td>
+				<td> 创建时间</td>
+				<td> 派工时间</td>
+				<td> 购买商场</td>
+				<td> 购买型号</td>
+				<td> 数量</td>
+				<td> 顾客姓名</td>
+				<td> 顾客手机</td>
+				<td> 顾客固话</td>
+				<td> 顾客地址</td>
+				<td>返现金额</td>
+				<td> 是否有返现活动</td>
+				<td> 是否需要支架</td>
+				<td>安装人员名字</td>
+				<td>安装人员手机号</td>
+				<th>是否使用支架</th>
+				<th>反馈类型</th>
+				<th>反馈情况</th>
+				<th>是否在新系统体现工单</th>
+				<th>是否已转结算</th>
+				<th>转结算日期</th>
+				<th>安装状态</th>
+				<th>备注</th>			</tr>
+			<foreach name="list" item="vo">
+
+		       <tr>
+		       		<td>{$i++}</td>
+		            <td>{$vo.installID}</td>
+		            <td>{$vo.salesBuyTime} </td>
+		            <td> {$vo.salesInstallTime} </td>
+		            <td> {$vo.installCreateTime} </td>
+		            <td> {$vo.installDispatchTime} </td>
+		            <td> {$vo.branchName} </td>
+		            <td> {$vo.modelName} </td>
+		            <td> {$vo.salesProductNum} </td>
+		            <td> {$vo.salesClientName} </td>
+		            <td> {$vo.salesClientPhone} </td>
+		            <td> {$vo.salesPersonTelePhone} </td>
+		            <td> {$vo.salesPersonAddress} </td>
+		            <td>{$vo.salesRemark} </td>
+		            <td> {$vo.salesCashback} </td>
+		            <td> {$vo.salesStand} </td>
+		            <td>{$vo.installPersonName}</td>
+		            <td>{$vo.installPersonPhone}</td>
+					<td>{$vo.installUserStand}</td>
+					<td>{$vo.installFeedback}</td>
+					<td>{$vo.installFeedbackRemark}</td>
+					<td>{$vo.installNewSystem}</td>
+					<td>{$vo.installTransferSettlement}</td>
+					<td>{$vo.installTransferSettlementDate}</td>
+					<td>{$vo.installStatus}</td>
+					<td>{$vo.installRemark}</td>
+			   	</tr>
+		      </foreach>
+		      </table>
+
+	<div class="result page">{$page}</div>
+ </body>
+</html>

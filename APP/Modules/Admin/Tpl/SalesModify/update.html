@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+</head>
+<body>
+	<form  action="{:U('save')}"  method="post"> 
+	<table class='table'>
+        <volist name="arr" id="k">
+              <tr><th align='right'>销售单号</th><td width='90%'><input type="text" name="salesID" value="{$k.salesID}" disabled></td></tr>
+              <tr><th align='right'>销售网点</th><td width='90%'><input type="text" name="salesBranchID" value="{$k.salesBranchID}" disabled></td></tr>
+              <tr><th align='right'>销售员</th><td width='90%'><input type="text" name="salesPersonName" value="{$k.salesPersonName}" disabled></td></tr>
+           <tr><th align='right'>顾客姓名</th><td width='90%'><input type="text" name="salesClientName" value="{$k.salesClientName}"></td></tr>
+           <tr><th align='right'>顾客手机号码</th><td width='90%'><input type="text" name="salesClientPhone" value="{$k.salesClientPhone}"></td></tr>
+           <tr><th align='right'>顾客固话（可空）</th><td width='90%'><input type="text" name="salesPersonTelePhone" value="{$k.salesPersonTelePhone}"></td></tr>
+           <tr><th align='right'>发票号</th><td width='90%'><input type="text" name="salesInvoiceID" value="{$k.salesInvoiceID}"></td></tr>
+           <tr><th align='right'>邮箱（可空）</th><td width='90%'><input type="text" name="salesClientMail" value="{$k.salesClientMail}"></td></tr>
+           <tr><th align='right'>购买时间</th><td width='90%'><input type="text" name="salesBuyTime" value="{$k.salesBuyTime}"></td></tr>
+           <tr><th align='right'>预约安装时间</th><td width='90%'><input type="text" name="salesInstallTime" value="{$k.salesInstallTime}"></td></tr>
+           <tr><th align='right'>安装地址</th><td width='90%'><input type="text" name="salesPersonAddress" value="{$k.salesPersonAddress}"></td></tr>
+           <tr><th align='right'>型号（选择）</th><td width='90%'><input type="text" name="salesModelID" value="{$k.salesModelID}"></td></tr>
+       	   <tr><th align='right'>是否要支架:</th><td width='90%'>是<input type="radio" value="1" name="salesStand">否<input type="radio" value="0" name="salesStand"></td></tr>
+           <tr><th align='right'>是否返现:</th><td width='90%'>是<input type="radio" value="1" name="salesCashback">否<input type="radio" value="0" name="salesCashback"></td></tr>
+           <tr><th align='right'> 购买数量</th><td width='90%'><input type="text" name="salesProductNum" value="{$k.salesProductNum}"></td></tr>		
+           <tr><th align='right'> 销售备注（可空）</th><td width='90%'><input type="text" name="salesRemark" value="{$k.salesRemark}"></td></tr>
+        </volist>
+        </table>
+		      <input type = "submit" value="确认修改" >
+	    </form>
+</body>
+</html>

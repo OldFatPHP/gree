@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>	
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+  <title>{:U('Report/index')}</title>
+</head>
+<body>
+
+
+<form action="{:U(handle)}" method="post">
+	安装网点：
+	<select name="branchID">
+	<foreach name="branchName" item="v">
+		<option value="{$v.branchID}">{$v.branchName}</option>
+	</foreach>
+	</select>
+	<input type="text" value="{$year}" name="year">年
+	<input type="text" value="{$month}" name="month">月
+	<input type="submit" name="" value="导出">
+
+</form>
+
+
+</body>
+</html>

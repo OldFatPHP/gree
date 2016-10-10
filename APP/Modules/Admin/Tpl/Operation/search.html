@@ -1,0 +1,96 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+	<title>用户信息</title>
+	<script type="text/javascript">
+		  function rec(){
+		    var mymessage=confirm("你确定删除吗？");
+		    if(mymessage==true)
+		    {
+		    	return true;
+		    }
+		    else
+		    {
+		        return false;
+		    }
+		  }    
+  	</script>
+</head>
+
+	<body>
+		<form action="{:U('Operation/search')}" method="post">
+		<table class='table'>
+			<tr><th align='right'>手机号</th><td width='90%'><input type="text" name="userID"  value="{$userID}"></td></tr>
+			<tr>
+			<th align='right'>姓名</th>
+			<td width='90%'><input type="text" name="userName" value="{$userName}"></td>
+			</tr>
+			<tr>
+			<tr>
+			<th align='right'>类别</th>
+			<td width='90%'>
+			<select name="userTypeID">
+				<option value="">请选择</option>
+				<if condition="$userTypeID == 1">
+					<option value=1 selected="selected">销售</option>
+				<else />
+					<option value=1>销售</option>
+				</if>
+				<if condition="$userTypeID == 2">
+					<option value=2 selected="selected">安装</option>
+				<else />
+					<option value=2>安装</option>
+				</if>
+				<if condition="$userTypeID == 3">
+					<option value=3 selected="selected">后台</option>
+				<else />
+					<option value=3>后台</option>
+				</if>
+			</select>
+			</td>
+			</tr>
+			<tr>
+
+		</table>
+		<input type="submit" value="确认查询">
+		</form>
+		
+		<table class='table'>
+			<tr>
+				<th> 手机号</th>
+				<th> 姓名</th>
+				<th> 性别</th>
+				<th> 证件号</th>
+				<th> 入职时间</th>
+				<th> 类别</th>
+				<th> 备注</th>
+				<td> 操作</td>
+			</tr>
+			<foreach name="array" item="v">
+			   <tr>
+					<td> {$v.userID}</td>
+					<td> {$v.userName}</td>
+					<td> {$v.userSex}</td>
+					<td> {$v.userIDCard}</td>
+					<td> {$v.userEntryTime}</td>
+					<if condition="$v['userTypeID']==1">
+						<td> 销售</td>
+					</if>
+					<if condition="$v['userTypeID']==2">
+						<td> 安装</td>
+					</if>
+					<if condition="$v['userTypeID']==3">
+						<td> 后台({$v.userBranchID})</td>
+					</if>
+					<td> {$v.userRemark}</td>
+					<td> <a href="{:U('Operation/delete', array('userID' => $v['userID']))}" onClick="return rec()">删除</a>
+						<a href="{:U('Operation/update', array('userID' => $v['userID']))}">修改</a></td>
+			   </tr>
+			</foreach>
+		</table>
+		<div class="result page">{$page}</div><br/>
+
+	</body>
+</html>

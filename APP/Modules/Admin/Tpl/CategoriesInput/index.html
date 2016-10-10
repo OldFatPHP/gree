@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+	<title>小类新增</title>
+</head>
+<body>
+       <form  action="{:U('add')}"  method="post">  
+		    <table class='table'>
+       		<tr>
+			<th align='right'>小类</th>
+			<td width='90%'>
+			<select name="pid">
+				<foreach name="category" item="val">
+					<option value="{$val.id}">{$val.name}</option>
+				</foreach>	
+			</select>
+			<input type="text" name="name">
+			<input type="hidden" name="categoryID" value="2">
+			<input type="submit" value="新增"> 
+			</td>
+			</tr>
+			</table>
+       </form>
+</body>
+</html>

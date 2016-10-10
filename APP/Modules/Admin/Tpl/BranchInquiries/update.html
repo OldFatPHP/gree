@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- 销售网点修改：这个修改我就想把这个index和update做在同一页面，最好是在原来的表格上就可以修改。 -->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+</head>
+<body>
+	<form  action="{:U('save')}"  method="post"> 
+	          <volist name="arr" id="k">
+		            <table class='table'>
+						<tr>
+							<th>网点名</th>
+							<th>网点地址</th>
+							<th>网点负责人</th>
+							<th>网点负责人电话</th>
+						</tr>
+						<tr>
+							<td style="text-align:center;"><input type="text" name="branchName" value="{$k.branchName}"></td>
+							<td style="text-align:center;"><input type="text" name="branchAddress" value="{$k.branchAddress}"></td>
+							<td style="text-align:center;"><input type="text" name="branchPicName" value="{$k.branchPicName}"></td>
+							<td style="text-align:center;"><input type="text" name="branchPicPhone" value="{$k.branchPicPhone}"></td>
+						</tr>
+					</table>
+		         </volist>
+		      <input type="hidden" name="branchID" value="{$k.branchID}">
+		      <input type = "submit" value="确认修改" >
+	    </form>
+</body>
+</html>

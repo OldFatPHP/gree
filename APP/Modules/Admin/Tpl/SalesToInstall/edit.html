@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Css/fontawesome/css/font-awesome.min.css">
+  <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Js/jquery.date_input.pack.js"></script> 
+  <script type="text/javascript">
+  <!--
+  $(function(){
+		$('.date_picker').date_input();
+		})
+  //-->
+  </script>
+</head>
+<body>
+	
+
+
+	<form action="{:U('editHandle')}" method="post">
+		<table class='table'>
+		<volist name='list' id='vo'>
+				<tr><th align='right'>安装编号</th><td width='90%'><input type="text" name="installID" value="{$vo.installID}" disabled></td>
+				</tr>
+				<tr>
+				<th align='right'>数量</th>
+				<td width='90%'><input type="text" value="{$vo.salesProductNum}" disabled></td>
+				</tr>
+				<tr>
+				<th align='right'>是否有返现活动</th>
+				<td width='90%'>
+					<select name="salesCashback">
+					<if condition="$vo.salesCashback eq 1">
+						<option value="1" selected="selected">是</option>
+						<option value="0">否</option>
+					<else />
+						<option value="1">是</option>
+						<option value="0" selected="selected">否</option>
+					</if>
+					</select>
+				</td>
+				</tr>
+				<tr>
+				<th align='right'>是否需要支架</th>
+				<td width='90%'>
+					<select name="salesStand">
+					<if condition="$vo.salesStand eq 1">
+						<option value="1" selected="selected">是</option>
+						<option value="0">否</option>
+					<else />
+						<option value="1">是</option>
+						<option value="0" selected="selected">否</option>
+					</if>
+					</select>
+				
+				</td>
+				</tr>
+				<tr>
+				<th align='right'>创建时间</th>
+				<td width='90%'><input type="text" name="installCreateTime" value="{$vo.installCreateTime }" disabled></td>
+				</tr>
+				<tr>
+				<th align='right'>购买日期</th>
+				<td width='90%'><input type="text" name="salesBuyTime" value="{$vo.salesBuyTime}" class="date_picker" disabled></td>
+				</tr> 
+				<tr>
+				<th align='right'>安装日期</th>
+				<td width='90%'><input type="text" name="salesInstallTime" value="{$vo.salesInstallTime}" class="date_picker"></td>
+				</tr> 
+				<tr>
+				<th align='right'>顾客姓名</th>
+				<td width='90%'><input type="text" name="salesClientName" value="{$vo.salesClientName}" ></td>
+				</tr>
+				<tr>
+				<th align='right'>顾客手机</th>
+				<td width='90%'><input type="text" name="salesClientPhone" value="{$vo.salesClientPhone}" ></td>
+				</tr>
+				<tr>
+				<th align='right'>顾客地址</th>
+				<td width='90%'><input type="text" name="salesPersonAddress" value="{$vo.salesPersonAddress}" ></td>
+				</tr>
+
+		</volist>
+		</table>
+		<input type="hidden" name="salesID" value="{$vo.salesID}">
+		<input type="hidden" name="installID" value="{$vo.installID}">
+		<input type="submit" value="更改" >
+
+
+
+	</form>
+</body>
+</html>
